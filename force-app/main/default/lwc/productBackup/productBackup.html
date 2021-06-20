@@ -1,0 +1,97 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-p-horizontal_large">
+            <!-- Product Backup -->
+            <lightning-layout horizontal-align="spread" class="slds-var-m-top_small">
+                <lightning-layout-item size="12" class="record-setion slds-var-p-horizontal_small">
+                    <b>
+                        Product History Information
+                    </b>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-record-view-form record-id={recordId} object-api-name="ProductBackup__c">
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right slds-border_top">
+                        <b>
+                            Name
+                        </b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_right ">
+                        <lightning-output-field variant="label-hidden" field-name="Name">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right ">
+                        <b>
+                            Product External Id
+                        </b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_right ">
+                        <lightning-output-field variant="label-hidden" field-name="Product_External_ID__c">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right ">
+                        <b>
+                            Selling Price
+                        </b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_right ">
+                        <lightning-output-field variant="label-hidden" field-name="Selling_Price__c">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-view-form>
+
+            <!-- Product related -->
+            <lightning-layout horizontal-align="spread" class="slds-var-m-top_small">
+                <lightning-layout-item size="12"
+                    class="related-setion slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right slds-border_top">
+                    <b>
+                        Related Product Information
+                    </b>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-record-view-form record-id={productId} object-api-name="Product2">
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right">
+                        <b>
+                            Active?
+                        </b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_right">
+                        <lightning-output-field variant="label-hidden" field-name="IsActive">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_left slds-border_right">
+                        <b>
+                            Created at
+                        </b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6"
+                        class="slds-var-p-horizontal_small slds-border_bottom slds-border_right">
+                        <lightning-output-field variant="label-hidden" field-name="CreatedDate">
+                        </lightning-output-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-view-form>
+        </div>
+
+    </lightning-card>
+</template>
