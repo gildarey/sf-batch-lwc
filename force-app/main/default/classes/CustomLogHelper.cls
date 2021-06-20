@@ -1,4 +1,7 @@
-public class CustomLogHelper {
+/**
+ * @description Class to save information about migrations, batch classes, others
+ */
+public with sharing class CustomLogHelper {
     public static List<Custom_Log__c> stagedLogs = new List<Custom_Log__c>();
 
     private static String fixTitle(String title) {

@@ -2,7 +2,7 @@
  * @date: Jun 2021
  * @author: Gilda Rey
  *
- * @description: Class to backup Product2
+ * @description Class to backup Product2
  */
 global class ProductBackupBatch implements Database.Batchable<sObject>, Database.Stateful, Schedulable{
 
@@ -12,12 +12,18 @@ global class ProductBackupBatch implements Database.Batchable<sObject>, Database
     global static final String CLASS_NAME = 'ProductBackupBatch';
 
     /**
-     * @description
+     * @description method to run the batch
+     * @param sc
      */
-    global void execute(SchedulableContext SC) {
-        database.executebatch(new ProductBackupBatch());
+    global void execute(SchedulableContext sc) {
+        Database.executebatch(new ProductBackupBatch());
     }
 
+    /**
+     * @description metod implemented to make the product backup
+     * @param bc
+     * @return a list of records to backup
+     */
     global Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator(
             'SELECT Id, Name, Price__c FROM Product2 WHERE IsActive = true'
@@ -25,7 +31,9 @@ global class ProductBackupBatch implements Database.Batchable<sObject>, Database
     }
 
     /**
-     * @description
+     * @description metod implemented to make the product backup
+     * @param bc
+     * @param scope the list of Product2 records
      */
     global void execute(Database.BatchableContext bc, List<Product2> scope) {
         Map<String, Product2> mapProduct = new Map<String, Product2>();
@@ -98,7 +106,8 @@ global class ProductBackupBatch implements Database.Batchable<sObject>, Database
     }
 
     /**
-     * @description
+     * @description method that is executed after run all batches
+     * @param bc
      */
     global void finish(Database.BatchableContext bc) {
         CustomLogHelper.stageNewLog(
